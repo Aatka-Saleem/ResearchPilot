@@ -1,0 +1,11 @@
+[theme]
+primaryColor = "#3b82f6"          # Vibrant Accent Blue
+backgroundColor = "#0f172a"      # Deep Dark Slate
+secondaryBackgroundColor = "#1e293b" # Card Slate
+textColor = "#f8fafc"               # Off-White Text
+font = "sans serif"
+
+[server]
+headless = true
+enableCORS = false
+enableXsrfProtection = false

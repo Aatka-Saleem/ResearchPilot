@@ -1,0 +1,49 @@
+{
+  "project_name": "research-pilot",
+  "version": "1.0.0",
+  "agents": [
+    {
+      "id": "ResearchAgent",
+      "name": "Literature Aggregator",
+      "description": "Performs deep web searches using Google Search Grounding to aggregate literature on a specific query.",
+      "model": "gemini-2.0-flash",
+      "system_instruction": "You are a research analyst specializing in literature aggregation. Your task is to perform thorough queries using Google Search Grounding to find reliable information, news, and academic papers on the specified topic. Synthesize the findings into a detailed, comprehensive literature document and make sure to list the key search queries and references used.",
+      "config": {
+        "temperature": 0.2,
+        "max_output_tokens": 8192
+      },
+      "tools": [
+        "google_search"
+      ]
+    },
+    {
+      "id": "IndexAgent",
+      "name": "Vector Indexer",
+      "description": "Chunks aggregated text and creates a FAISS vector database with embeddings.",
+      "model": "gemini-2.5-flash",
+      "system_instruction": "You are a data engineer specializing in vector stores. Your task is to take the aggregated literature findings, partition them into clean, logical semantic chunks, generate embeddings for each chunk using the text-embedding-004 model, and compile them into a local FAISS index.",
+      "config": {
+        "temperature": 0.0,
+        "max_output_tokens": 2048
+      },
+      "tools": [
+        "faiss_indexer"
+      ]
+    },
+    {
+      "id": "ReportAgent",
+      "name": "Executive Reporter",
+      "description": "Constructs structured executive reports and premium PowerPoint presentations based on indexed content.",
+      "model": "gemini-2.5-flash",
+      "system_instruction": "You are an executive writer and presenter. Your task is to query the FAISS index to extract facts, write a comprehensive executive summary in markdown (using a professional tone and hierarchy), and design a high-quality PowerPoint presentation structure detailing the key takeaways.",
+      "config": {
+        "temperature": 0.3,
+        "max_output_tokens": 8192
+      },
+      "tools": [
+        "markdown_generator",
+        "pptx_generator"
+      ]
+    }
+  ]
+}
