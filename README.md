@@ -9,7 +9,7 @@
   <p align="center"><strong>Secure Multi-Agent Literature Aggregator & Secured Indexer Swarm</strong></p>
   <p align="center"><em>Defending Enterprise Analytics against Indirect Prompt Injections and Hallucinations using Decoupled FastMCP Subprocesses.</em></p>
   
-  <a href="https://github.com/[Aatka-Saleem]/research-pilot"><strong>Explore the Repository »</strong></a>
+  <a href="https://github.com/Aatka-Saleem/research-pilot"><strong>Explore the Repository »</strong></a>
 </div>
 
 ---
