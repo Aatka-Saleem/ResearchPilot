@@ -133,7 +133,7 @@ research-pilot/
 ---
 ## 🚀 Setup and Running
 
-For comprehensive onboarding commands and Cloud Run orchestration details, please read [DEPLOYMENT.md] (https://github.com/Aatka-Saleem/ResearchPilot/blob/main/DEPLOYMENT.md).
+For comprehensive onboarding commands and Cloud Run orchestration details, please read [DEPLOYMENT.md](https://github.com/Aatka-Saleem/ResearchPilot/blob/main/DEPLOYMENT.md).
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Streamlit-FF4B4B)](https://researchpilot-yf9a3dfzcb4hwxuze4gvar.streamlit.app/)
 
@@ -148,10 +148,9 @@ uv sync
 
 # 3. Set your API key
 export GOOGLE_API_KEY="your-api-key-here"
-   ```
+   
 #4. Execute CLI pipeline:
-   ```bash
-   uv run main.py --topic "RAG Evaluation Frameworks and ROUGE/BLEU limitations"
+uv run main.py --topic "RAG Evaluation Frameworks and ROUGE/BLEU limitations"
    ```
 
 ### 🖥️ Interactive Web UI:
@@ -160,8 +159,9 @@ A modern, dark-slate themed dashboard built with Streamlit allows users to run t
    ```bash
    uv run python -m streamlit run app/web_ui.py
    ```
-#2. Open your browser at `http://localhost:8501`.
-#3. Input your target query, click **Generate Research Assets 🚀**, trace execution logs dynamically, and download your Markdown reports and PowerPoint presentations.
+2. Open your browser at `http://localhost:8501`.
+   
+3. Input your target query, click **Generate Research Assets 🚀**, trace execution logs dynamically, and download your Markdown reports and PowerPoint presentations.
 
 ---
 Enter a research topic (e.g. *"GraphRAG vs Vector RAG for Multi-Hop Document Summarization"*) and the pipeline will:
