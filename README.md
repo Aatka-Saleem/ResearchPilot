@@ -9,22 +9,8 @@
   <p align="center"><strong>Secure Multi-Agent Literature Aggregator & Secured Indexer Swarm</strong></p>
   <p align="center"><em>Defending Enterprise Analytics against Indirect Prompt Injections and Hallucinations using Decoupled FastMCP Subprocesses.</em></p>
   
-  <a href="https://github.com/Aatka-Saleem/research-pilot"><strong>Explore the Repository »</strong></a>
+  <a href="https://github.com/Aatka-Saleem/ResearchPilot"><strong>Explore the Repository »</strong></a>
 </div>
-
----
-
-# ResearchPilot 🚀
-
-**Secure Multi-Agent Literature Aggregator & Indexer**
-
-*Defending against indirect prompt injection and hallucination in corporate knowledge workflows using decoupled FastMCP servers and layered security guardrails.*
-
-[![Track](https://img.shields.io/badge/Track-Agents%20for%20Business-blue)](#)
-[![Built with ADK](https://img.shields.io/badge/Built%20with-Google%20ADK-4285F4)](#)
-[![MCP](https://img.shields.io/badge/Protocol-MCP-success)](#)
-[![Python](https://img.shields.io/badge/Python-3.10%2B-yellow)](#)
-[![License](https://img.shields.io/badge/License-MIT-lightgrey)](#)
 
 ---
 
@@ -82,6 +68,17 @@ graph TD
     ROA -->|Build slides| SlideGen[PPTX Generator]
     SlideGen --> FinalPPTX[executive_presentation.pptx]
 ```
+---
+
+## 🎓 Kaggle Curriculum Competency Matrix
+
+| Curriculum Day | Core Demonstration | File Location |
+|---|---|---|
+| **Day 1: Scaffolding** | Modern workspace management with `uv`, declarative agent configurations, and automated unit tests. | [pyproject.toml](file:///C:/Users/aatka/research-pilot/pyproject.toml), [agents.json](file:///C:/Users/aatka/research-pilot/app/agents.json), [tests/](file:///C:/Users/aatka/research-pilot/tests/) |
+| **Day 2: Structured Outputs & Grounding** | Web Search Grounding (`web_search` tool configuration) and JSON Pydantic response formatting. | [research_agent.py](file:///C:/Users/aatka/research-pilot/app/agents/research_agent.py), [report_agent.py](file:///C:/Users/aatka/research-pilot/app/agents/report_agent.py) |
+| **Day 3: Model Context Protocol** | Client-Server stdio transport layer built using FastMCP server tool execution. | [server.py](file:///C:/Users/aatka/research-pilot/mcp_server/server.py), [index_agent.py](file:///C:/Users/aatka/research-pilot/app/agents/index_agent.py), [report_agent.py](file:///C:/Users/aatka/research-pilot/app/agents/report_agent.py) |
+| **Day 4: Security Sanitizer & Guardrails** | Regex-based prompt injection sanitizer, FAISS citation validator, and pre-commit key blocker. | [sanitizer.py](file:///C:/Users/aatka/research-pilot/app/tools/sanitizer.py), [report_agent.py](file:///C:/Users/aatka/research-pilot/app/agents/report_agent.py#L53-L98), [pre-commit](file:///C:/Users/aatka/research-pilot/githooks/pre-commit), [SECURITY.md](file:///C:/Users/aatka/research-pilot/SECURITY.md) |
+| **Day 5: Production Deployment** | Multi-stage Dockerization with cached layers, Secret Manager runtime mounting, and deploy scripting. | [Dockerfile](file:///C:/Users/aatka/research-pilot/Dockerfile), [deploy.sh](file:///C:/Users/aatka/research-pilot/deploy.sh), [DEPLOYMENT.md](file:///C:/Users/aatka/research-pilot/DEPLOYMENT.md) |
 
 ---
 
@@ -133,11 +130,14 @@ research-pilot/
     ├── executive_report.md
     └── executive_presentation.pptx
 ```
-
 ---
+## 🚀 Setup and Running
 
-## 🚀 Quickstart
+For comprehensive onboarding commands and Cloud Run orchestration details, please read [DEPLOYMENT.md] (https://github.com/Aatka-Saleem/ResearchPilot/blob/main/DEPLOYMENT.md).
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Streamlit-FF4B4B)](https://researchpilot-yf9a3dfzcb4hwxuze4gvar.streamlit.app/)
+
+### Quickstart Local Run:
 ```bash
 # 1. Clone the repo
 git clone https://github.com/<Aatka-Saleem>/research-pilot.git
@@ -148,19 +148,23 @@ uv sync
 
 # 3. Set your API key
 export GOOGLE_API_KEY="your-api-key-here"
+   ```
+#4. Execute CLI pipeline:
+   ```bash
+   uv run main.py --topic "RAG Evaluation Frameworks and ROUGE/BLEU limitations"
+   ```
 
-# 4. Launch the dashboard
-streamlit run app/web_ui.py
-```
+### 🖥️ Interactive Web UI:
+A modern, dark-slate themed dashboard built with Streamlit allows users to run the swarm visually.
+#1. Run the Streamlit web server:
+   ```bash
+   uv run python -m streamlit run app/web_ui.py
+   ```
+#2. Open your browser at `http://localhost:8501`.
+#3. Input your target query, click **Generate Research Assets 🚀**, trace execution logs dynamically, and download your Markdown reports and PowerPoint presentations.
 
+---
 Enter a research topic (e.g. *"GraphRAG vs Vector RAG for Multi-Hop Document Summarization"*) and the pipeline will:
-
-1. Sanitize and ground literature from the web
-2. Index it securely via the FastMCP vector server
-3. Generate a citation-verified executive report
-4. Export a 10-slide, presentation-ready PowerPoint deck
-
-— all in under 60 seconds.
 
 ### Example Run
 
@@ -180,9 +184,6 @@ Enter a research topic (e.g. *"GraphRAG vs Vector RAG for Multi-Hop Document Sum
 ## 🏆 What Makes This Different
 
 Most hackathon agent demos stop at a chatbot. ResearchPilot treats agent boundaries as a **security model**, not just a design pattern, and ships a tangible business artifact — a styled, ready-to-present `.pptx` deck — instead of a wall of chat text.
-
----
-
 
 ---
 
