@@ -17,9 +17,8 @@ class BaseAgent:
         self.max_output_tokens = agent_config.get("max_output_tokens", 8192)
         self.tools_list = config_data.get("tools", [])
         
-        # Initialize Google Gen AI Client
-        # It will automatically pick up GEMINI_API_KEY from the environment.
-        self.client = genai.Client()
+        # Initialize Google Gen AI Client with explicit API key mapping
+        self.client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
 
     def get_generation_config(self, tools: list = None) -> types.GenerateContentConfig:
         """Helper to build GenerateContentConfig with agent's default settings."""

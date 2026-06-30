@@ -27,8 +27,9 @@ if not os.path.isabs(OUTPUT_DIR):
     OUTPUT_DIR = os.path.abspath(os.path.join(project_root, OUTPUT_DIR))
 INDEX_PREFIX = os.path.join(OUTPUT_DIR, "literature_index")
 
-# Initialize client
-client = genai.Client()
+# Initialize client explicitly with the environment key
+api_key = os.environ.get("GEMINI_API_KEY")
+client = genai.Client(api_key=api_key)
 
 def get_vector_store() -> FAISSVectorStore:
     """Helper to initialize and optionally load the existing FAISS index."""
