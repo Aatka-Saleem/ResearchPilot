@@ -29,10 +29,11 @@ class ReportAgent(BaseAgent):
         Returns:
             A list of matching text chunks returned by the MCP tool.
         """
+        api_key = os.environ.get("GEMINI_API_KEY", "")
         # Run using same python environment executable to avoid module path issues
         server_params = StdioServerParameters(
             command=sys.executable,
-            args=["mcp_server/server.py"]
+            args=["mcp_server/server.py", "--api-key", api_key]
         )
         
         results = []

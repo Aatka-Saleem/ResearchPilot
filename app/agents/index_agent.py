@@ -42,10 +42,11 @@ class IndexAgent(BaseAgent):
 
     async def _index_chunks_via_mcp(self, chunks: List[str], source_url: str) -> List[str]:
         """Launches the MCP server and registers all text chunks in a single session."""
+        api_key = os.environ.get("GEMINI_API_KEY", "")
         # Use sys.executable to ensure the server runs in the same virtual environment
         server_params = StdioServerParameters(
             command=sys.executable,
-            args=["mcp_server/server.py"]
+            args=["mcp_server/server.py", "--api-key", api_key]
         )
         
         results = []

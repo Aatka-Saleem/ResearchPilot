@@ -27,8 +27,19 @@ if not os.path.isabs(OUTPUT_DIR):
     OUTPUT_DIR = os.path.abspath(os.path.join(project_root, OUTPUT_DIR))
 INDEX_PREFIX = os.path.join(OUTPUT_DIR, "literature_index")
 
-# Initialize client explicitly with the environment key
-api_key = os.environ.get("GEMINI_API_KEY")
+# Initialize client: check CLI arguments first, then fall back to environment variable
+api_key = None
+if "--api-key" in sys.argv:
+    try:
+        idx = sys.argv.index("--api-key")
+        if idx + 1 < len(sys.argv):
+            api_key = sys.argv[idx + 1]
+    except ValueError:
+        pass
+
+if not api_key:
+    api_key = os.environ.get("GEMINI_API_KEY")
+
 client = genai.Client(api_key=api_key)
 
 def get_vector_store() -> FAISSVectorStore:
