@@ -110,6 +110,7 @@ with col_info:
 
 # Output directory configuration
 output_dir = os.environ.get("OUTPUT_DIR", "./output")
+os.makedirs(output_dir, exist_ok=True)
 report_path = os.path.join(output_dir, "executive_report.md")
 pptx_path = os.path.join(output_dir, "executive_presentation.pptx")
 findings_path = os.path.join(output_dir, "research_findings.md")
